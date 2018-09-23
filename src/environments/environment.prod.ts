@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  budget: "https://budgetapi.bgeo.io"
+
 };
