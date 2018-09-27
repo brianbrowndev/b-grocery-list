@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: "https://budgetapi.bgeo.io"
+  api: "http://localhost:5000/api"
 
 };
 

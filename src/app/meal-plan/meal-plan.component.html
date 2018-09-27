@@ -13,15 +13,15 @@
 
 <div class="groceries" *ngIf="groceriesByCategory">
   <div class="grocery-list-group" *ngFor="let o of groceriesByCategory | keyvalue">
-    <h6>{{o.key.replace("_", " ")}}</h6>
-    <ul class="grocery-list">
-      <li class='grocery-item' [ngClass]="{'strike': grocery.remove}" (click)="grocery.remove=!grocery.remove" *ngFor="let grocery of o.value">
-        <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
-        <span *ngIf="grocery.weight > 0">{{grocery.weight}}{{grocery.unit}}&nbsp;</span>
-        <span [ngClass]="grocery.supermarket" class="grocery-name">{{grocery.name}}</span>
-        <!-- <span [ngClass]="grocery.supermarket" class="supermarket" *ngIf="grocery.supermarket">{{grocery.supermarket}}</span> -->
-        <i *ngIf="grocery.dirty" class="fa fa-leaf"></i>
-      </li>
-    </ul>
+    <h3 matSubheader>{{o.key.replace("_", " ")}}</h3>
+      <mat-list dense>
+        <mat-list-item class='grocery-item' [ngClass]="{'strike': grocery.remove}" (click)="grocery.remove=!grocery.remove" *ngFor="let grocery of o.value">
+          <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
+          <span *ngIf="grocery.weight > 0">{{grocery.weight}}{{grocery.unit}}&nbsp;</span>
+          <span [ngClass]="grocery.supermarket" class="grocery-name">{{grocery.name}}</span>
+          <!-- <span [ngClass]="grocery.supermarket" class="supermarket" *ngIf="grocery.supermarket">{{grocery.supermarket}}</span> -->
+          <i *ngIf="grocery.dirty" class="fa fa-leaf"></i>
+        </mat-list-item>
+      </mat-list>
   </div>
 </div>

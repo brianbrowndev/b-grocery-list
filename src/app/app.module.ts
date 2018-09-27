@@ -13,6 +13,7 @@ import {
   MatToolbarModule
   , MatSidenavModule
   , MatProgressSpinnerModule
+  , MatListModule
 } from '@angular/material';
 
 
@@ -31,6 +32,7 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
+    MatListModule,
     MatProgressSpinnerModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
