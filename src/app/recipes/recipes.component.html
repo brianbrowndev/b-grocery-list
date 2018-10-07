@@ -1,0 +1,15 @@
+<mat-list dense *ngIf="recipes | async as result else loading">
+  <mat-list-item *ngFor="let recipe of result; last as last">
+    <div matLine class="recipe-title">
+      <strong><span>{{recipe.count}}x {{recipe.name}}</span></strong>
+      <em>{{recipe.category}}</em>
+    </div>
+    <div matLine class="recipe-subtitle">
+      <span>{{recipe.cookbook}} ({{recipe.pageNumber}})</span>
+    </div>
+    <mat-divider *ngIf="!last"></mat-divider>
+  </mat-list-item>
+</mat-list>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>

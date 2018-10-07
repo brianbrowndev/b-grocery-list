@@ -1,14 +1,18 @@
-<header>
+<header class="mat-elevation-z4">
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <span>Grocery List</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="mealPlanComponent.open = !mealPlanComponent.open;">
+        <mat-icon>menu</mat-icon>
+      </button>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
-<mat-sidenav-container>
-  <mat-sidenav>Start</mat-sidenav>
-  <mat-sidenav position="end">End</mat-sidenav>
-  <section>
-    <app-meal-plan></app-meal-plan>
-  </section>
-</mat-sidenav-container>
+<main>
+  <app-meal-plan [mealPlan]="result" *ngIf="mealPlan | async as result else loading"></app-meal-plan>
+</main>
+<ng-template #loading>
+  <mat-spinner></mat-spinner>
+</ng-template>
+

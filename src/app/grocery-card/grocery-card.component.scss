@@ -1,0 +1,36 @@
+mat-card-title {
+    display:flex;
+    align-items:center;
+    flex:1;
+    & span {
+        flex:2;
+    }
+}
+.mat-card {
+  margin-bottom: 2rem;
+}
+mat-chip {
+  color:#fff !important;
+  padding:5px;
+  margin-left:1rem;
+  &.E{
+    background: rgba(42,179,75,1);
+  }
+  &.K{
+    background: rgba(0,89,181,1);
+  }
+}
+
+.grocery-item {
+    display:flex;
+    flex:1;
+    align-items:center;
+
+}
+mat-list-option {
+    flex:2;
+}
+
+mat-icon {
+    cursor:pointer;
+}

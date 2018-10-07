@@ -1,0 +1,23 @@
+<mat-card class="grocery-list-card" *ngIf="showCard">
+  <mat-card-title>
+    <span>{{category}}</span>
+    <mat-icon *ngIf="itemHidden" (click)="showAll()">visibility</mat-icon>
+    <mat-icon (click)="showCard = false">close</mat-icon>
+  </mat-card-title>
+  <mat-selection-list dense>
+    <ng-container *ngFor="let grocery of groceries; last as last">
+      <div class="grocery-item" *ngIf="grocery.visible">
+        <mat-list-option>
+          <span>
+            <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
+            <span *ngIf="grocery.weight > 0">{{grocery.weight | number : '1.0-2'}}{{grocery.unit}}&nbsp;</span>
+            <span>{{grocery.name}}</span>
+            <mat-chip [ngClass]="grocery.supermarket" *ngIf="grocery.supermarket">{{grocery.supermarketName}}</mat-chip>
+            </span>
+          <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
+        </mat-list-option>
+        <mat-icon (click)="hideGrocery(grocery)">visibility_off</mat-icon>
+      </div> 
+    </ng-container>
+  </mat-selection-list>
+</mat-card>

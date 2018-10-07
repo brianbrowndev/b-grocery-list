@@ -1,0 +1,5 @@
+<div class="groceries" *ngIf="groceriesByCategory">
+  <ng-container *ngFor="let o of groceriesByCategory | keyvalue">
+    <app-grocery-card [category]="o.key.replace('_', ' ')" [groceries]="o.value"></app-grocery-card>
+  </ng-container>
+</div>

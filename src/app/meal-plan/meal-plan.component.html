@@ -1,27 +1,16 @@
-<h5 *ngIf="mealPlan">{{mealPlan.name}}</h5>
-<div *ngIf="recipes | async as result else loading">
-  <div class="recipe-list" *ngFor="let recipe of result">
-    <i class="fa fa-angle-right"></i>
-    <span>({{recipe.category}}) {{recipe.count}}x {{recipe.name}} -
-      <em>{{recipe.cookbook}} pg. {{recipe.pageNumber}}</em>
-    </span>
-  </div>
-</div>
-<ng-template #loading>
-  <mat-spinner></mat-spinner>
-</ng-template>
+<mat-sidenav-container class="mat-typography">
+  <mat-sidenav mode="side" [opened]="open">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Recipes
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <app-recipes [mealPlan]="mealPlan"></app-recipes>
+    </mat-expansion-panel>
 
-<div class="groceries" *ngIf="groceriesByCategory">
-  <div class="grocery-list-group" *ngFor="let o of groceriesByCategory | keyvalue">
-    <h3 matSubheader>{{o.key.replace("_", " ")}}</h3>
-      <mat-list dense>
-        <mat-list-item class='grocery-item' [ngClass]="{'strike': grocery.remove}" (click)="grocery.remove=!grocery.remove" *ngFor="let grocery of o.value">
-          <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
-          <span *ngIf="grocery.weight > 0">{{grocery.weight}}{{grocery.unit}}&nbsp;</span>
-          <span [ngClass]="grocery.supermarket" class="grocery-name">{{grocery.name}}</span>
-          <!-- <span [ngClass]="grocery.supermarket" class="supermarket" *ngIf="grocery.supermarket">{{grocery.supermarket}}</span> -->
-          <i *ngIf="grocery.dirty" class="fa fa-leaf"></i>
-        </mat-list-item>
-      </mat-list>
-  </div>
-</div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-groceries [mealPlan]="mealPlan"></app-groceries>
+  </mat-sidenav-content>
+</mat-sidenav-container>

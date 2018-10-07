@@ -9,7 +9,9 @@ export class MealPlanGrocery {
         public unit: string,
         public dirty: number = 0,
         public supermarket: string,
-        public remove: false
+        public supermarketName: string,
+        public remove: false,
+        public visible: boolean = true
     ) { }
 }
 

@@ -14,17 +14,28 @@ import {
   , MatSidenavModule
   , MatProgressSpinnerModule
   , MatListModule
+  , MatCardModule
+  , MatIconModule
+  , MatButtonModule
+  , MatChipsModule
+  , MatExpansionModule
 } from '@angular/material';
 
 
 // Components
 import { MealPlanComponent } from './meal-plan/meal-plan.component';
+import { GroceriesComponent } from './groceries/groceries.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { GroceryCardComponent } from './grocery-card/grocery-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MealPlanComponent
+    MealPlanComponent,
+    GroceriesComponent,
+    RecipesComponent,
+    GroceryCardComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +44,12 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
+    MatCardModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatChipsModule,
+    MatExpansionModule,
     BrowserAnimationsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
