@@ -1,5 +1,5 @@
 <mat-sidenav-container class="mat-typography">
-  <mat-sidenav mode="side" [opened]="open">
+  <mat-sidenav [class.is-mobile]="mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="open">
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>

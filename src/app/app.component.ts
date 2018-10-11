@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   title = 'groceries';
 
   @ViewChild(MealPlanComponent)
-  private mealPlanComponent: MealPlanComponent;
+  mealPlanComponent: MealPlanComponent;
   constructor(
       public apiService: ApiService
   ) {
