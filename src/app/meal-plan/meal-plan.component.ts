@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core';
 import { MealPlan } from '@app/models';
-import {MediaMatcher} from '@angular/cdk/layout';
+import { MediaMatcher } from '@angular/cdk/layout';
 import { MobileService } from '@app/mobile.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class MealPlanComponent implements OnDestroy {
     constructor(
         changeDetectorRef: ChangeDetectorRef,
         mobileService: MobileService,
-        media: MediaMatcher
+        media: MediaMatcher,
     ) {
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = () => {

@@ -12,7 +12,10 @@
             <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
             <span *ngIf="grocery.weight > 0">{{grocery.weight | number : '1.0-2'}}{{grocery.unit}}&nbsp;</span>
             <span>{{grocery.name}}</span>
-            <mat-chip [ngClass]="grocery.supermarket" *ngIf="grocery.supermarket">{{isMobile ? grocery.supermarketName : grocery.supermarket}}</mat-chip>
+            <mat-chip [ngClass]="grocery.supermarket" *ngIf="grocery.supermarket">
+              <ng-container *ngIf="!isMobile">{{grocery.supermarketName}}</ng-container>
+              <ng-container *ngIf="isMobile">{{grocery.supermarket}}</ng-container>
+            </mat-chip>
             </span>
           <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
         </mat-list-option>

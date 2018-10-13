@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import {BreakpointObserver} from '@angular/cdk/layout';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MobileService {
 
+  constructor(
+    readonly breakpointObserver: BreakpointObserver
+  ) { }
 
    // Observable string sources
   private isMobile = new Subject<boolean>();
@@ -17,6 +21,9 @@ export class MobileService {
   setMobile(isMobile: boolean) {
     this.isMobile.next(isMobile);
   }
+
+  get _isMobile () {
+      return this.breakpointObserver.isMatched('(max-width: 599px)');
+  }
  
-  constructor() { }
 }

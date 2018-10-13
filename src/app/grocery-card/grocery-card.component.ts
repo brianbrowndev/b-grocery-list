@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { MealPlanGrocery } from '@app/models';
 import { MobileService } from '@app/mobile.service';
 
@@ -16,11 +16,16 @@ export class GroceryCardComponent implements OnInit {
   itemHidden: boolean = false;
   showCard: boolean = true;
   constructor(
-    readonly mobileService: MobileService
+    readonly mobileService: MobileService,
+    readonly changeDetectorRef: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
-    this.mobileService.isMobile$.subscribe(isMobile => {console.log(isMobile); this.isMobile = isMobile});
+    this.isMobile = this.mobileService._isMobile;
+    this.mobileService.isMobile$.subscribe(isMobile => {
+     this.isMobile = isMobile; 
+     this.changeDetectorRef.detectChanges()
+    });
   }
 
   showAll() {
