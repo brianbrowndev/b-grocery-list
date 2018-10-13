@@ -13,6 +13,8 @@
   <app-meal-plan [mealPlan]="result" *ngIf="mealPlan | async as result else loading"></app-meal-plan>
 </main>
 <ng-template #loading>
-  <mat-spinner></mat-spinner>
+  <div class="loading">
+    <mat-spinner [color]="'accent'"></mat-spinner>
+  </div>
 </ng-template>
 

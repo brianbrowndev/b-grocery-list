@@ -1,5 +1,6 @@
 <mat-sidenav-container class="mat-typography">
   <mat-sidenav [class.is-mobile]="mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="open">
+    <h1>{{mealPlan.name}}</h1>
     <mat-expansion-panel>
       <mat-expansion-panel-header>
         <mat-panel-title>
