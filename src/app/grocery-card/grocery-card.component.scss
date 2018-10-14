@@ -9,7 +9,7 @@ mat-card-title {
         flex:2;
     }
 }
-.mat-card {
+.mat-expansion-panel {
   margin-bottom: 1rem;
 }
 mat-chip {
@@ -31,9 +31,5 @@ mat-chip {
 
 }
 mat-list-option {
-    flex:2;
-}
-
-mat-icon {
-    cursor:pointer;
+    flex:1;
 }

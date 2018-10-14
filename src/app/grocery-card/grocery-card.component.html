@@ -1,13 +1,13 @@
-<mat-card class="grocery-list-card" *ngIf="showCard">
-  <mat-card-title>
-    <span>{{category}}</span>
-    <mat-icon *ngIf="itemHidden" (click)="showAll()">visibility</mat-icon>
-    <mat-icon (click)="showCard = false">close</mat-icon>
-  </mat-card-title>
-  <mat-selection-list dense>
+<mat-expansion-panel class="grocery-list-card" [expanded]="expanded">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <span>{{category}}</span>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <mat-selection-list dense #selectionList (selectionChange)="expanded = selectionList.selectedOptions.selected.length !== groceries.length">
     <ng-container *ngFor="let grocery of groceries; last as last">
-      <div class="grocery-item" *ngIf="grocery.visible">
-        <mat-list-option>
+      <div class="grocery-item">
+        <mat-list-option [disableRipple]="true" [selected]="grocery.selected" (click)="select($event, grocery)">
           <span>
             <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
             <span *ngIf="grocery.weight > 0">{{grocery.weight | number : '1.0-2'}}{{grocery.unit}}&nbsp;</span>
@@ -19,8 +19,8 @@
             </span>
           <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
         </mat-list-option>
-        <mat-icon (click)="hideGrocery(grocery)">visibility_off</mat-icon>
       </div> 
     </ng-container>
   </mat-selection-list>
-</mat-card>
+</mat-expansion-panel>
+

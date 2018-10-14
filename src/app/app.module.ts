@@ -26,6 +26,7 @@ import { MealPlanComponent } from './meal-plan/meal-plan.component';
 import { GroceriesComponent } from './groceries/groceries.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { GroceryCardComponent } from './grocery-card/grocery-card.component';
+import { StorageService } from '@app/storage.service';
 
 
 @NgModule({
@@ -51,7 +52,9 @@ import { GroceryCardComponent } from './grocery-card/grocery-card.component';
     MatExpansionModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    StorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

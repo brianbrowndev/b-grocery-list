@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { MealPlanGrocery } from '@app/models';
 import { MobileService } from '@app/mobile.service';
+import { MatSelectionList } from '@angular/material';
+import { StorageService } from '@app/storage.service';
 
 @Component({
   selector: 'app-grocery-card',
@@ -10,14 +12,15 @@ import { MobileService } from '@app/mobile.service';
 export class GroceryCardComponent implements OnInit {
 
   isMobile: boolean;
+  expanded: boolean = true;
   @Input() groceries: MealPlanGrocery[];
   @Input() category: string;
+  @Input() mealPlanId: string;
 
-  itemHidden: boolean = false;
-  showCard: boolean = true;
   constructor(
     readonly mobileService: MobileService,
-    readonly changeDetectorRef: ChangeDetectorRef
+    readonly changeDetectorRef: ChangeDetectorRef,
+    readonly storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -26,15 +29,19 @@ export class GroceryCardComponent implements OnInit {
      this.isMobile = isMobile; 
      this.changeDetectorRef.detectChanges()
     });
+    let data = this.storageService.get(this.mealPlanId) || {};
+    let selectCount = 0;
+    this.groceries.forEach(grocery => {
+      grocery.selected = data[grocery.name];
+      selectCount += grocery.selected ? 1 : 0;
+    });
+    this.expanded = selectCount !== this.groceries.length;
   }
 
-  showAll() {
-    this.groceries.forEach(g => g.visible = true);
-    this.itemHidden = false;
-  }
-
-  hideGrocery(grocery: MealPlanGrocery) {
-    grocery.visible = false;
-    this.itemHidden = true;
-  }
+  select($event, grocery) {
+    let data = this.storageService.get(this.mealPlanId) || {};
+    grocery.selected =  !grocery.selected;
+    data[grocery.name] = grocery.selected;
+    this.storageService.set(this.mealPlanId, data);
+  } 
 }

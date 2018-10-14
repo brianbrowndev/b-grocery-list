@@ -10,8 +10,8 @@ export class MealPlanGrocery {
         public dirty: number = 0,
         public supermarket: string,
         public supermarketName: string,
-        public remove: false,
-        public visible: boolean = true
+        public remove: boolean,
+        public selected: boolean = false
     ) { }
 }
 

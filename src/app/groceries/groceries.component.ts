@@ -34,7 +34,6 @@ export class GroceriesComponent implements OnInit {
           if (!data.hasOwnProperty(category)) {
               data[category] = [];
           }
-          g.visible = true;
           data[category].push(g);
       });
       return data;
