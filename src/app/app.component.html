@@ -3,18 +3,12 @@
     <mat-toolbar-row>
       <span>Grocery List</span>
       <span class="spacer"></span>
-      <button mat-icon-button (click)="mealPlanComponent.open = !mealPlanComponent.open;">
+      <button mat-icon-button (click)="appService.openMenu()">
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
 <main>
-  <app-meal-plan [mealPlan]="result" *ngIf="mealPlan | async as result else loading"></app-meal-plan>
+  <router-outlet></router-outlet>
 </main>
-<ng-template #loading>
-  <div class="loading">
-    <mat-spinner [color]="'accent'"></mat-spinner>
-  </div>
-</ng-template>
-

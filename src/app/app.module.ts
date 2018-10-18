@@ -27,6 +27,9 @@ import { GroceriesComponent } from './groceries/groceries.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { GroceryCardComponent } from './grocery-card/grocery-card.component';
 import { StorageService } from '@app/storage.service';
+import { MealPlansComponent } from './meal-plans/meal-plans.component';
+import { AppRoutingModule } from './app-routing.module';
+
 
 
 @NgModule({
@@ -35,7 +38,8 @@ import { StorageService } from '@app/storage.service';
     MealPlanComponent,
     GroceriesComponent,
     RecipesComponent,
-    GroceryCardComponent
+    GroceryCardComponent,
+    MealPlansComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +54,8 @@ import { StorageService } from '@app/storage.service';
     MatButtonModule,
     MatChipsModule,
     MatExpansionModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AppRoutingModule
   ],
   providers: [
     StorageService

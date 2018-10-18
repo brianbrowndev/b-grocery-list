@@ -1,27 +1,19 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
-import { MealPlan } from '@app/models';
-import { ApiService } from '@app/api.service';
-import { Observable } from 'rxjs';
-import { MealPlanComponent } from './meal-plan/meal-plan.component';
+import { Component } from '@angular/core';
+import { AppService } from '@app/app.service';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
-  mealPlan: Observable<MealPlan>;
+export class AppComponent {
   title = 'groceries';
 
-  @ViewChild(MealPlanComponent)
-  mealPlanComponent: MealPlanComponent;
   constructor(
-      public apiService: ApiService
+    readonly appService:AppService
   ) {
-  }
-
-  ngOnInit() {
-    this.mealPlan = this.apiService.getLatestMealPlan()
   }
 
 }
