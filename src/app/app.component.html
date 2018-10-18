@@ -3,12 +3,39 @@
     <mat-toolbar-row>
       <span>Grocery List</span>
       <span class="spacer"></span>
-      <button mat-icon-button (click)="appService.openMenu()">
+      <button mat-icon-button (click)="open = !open">
         <mat-icon>menu</mat-icon>
       </button>
     </mat-toolbar-row>
   </mat-toolbar>
 </header>
 <main>
-  <router-outlet></router-outlet>
+  <mat-sidenav-container class="mat-typography">
+    <mat-sidenav [class.is-mobile]="mobileQuery.matches" [mode]="mobileQuery.matches ? 'over' : 'side'" [opened]="open">
+      <h1>{{mealPlan.name}}</h1>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Recipes
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+          <app-recipes [mealPlan]="mealPlan"></app-recipes>
+        </ng-template>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            MealPlans
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <ng-template matExpansionPanelContent>
+          <app-meal-plans></app-meal-plans>
+        </ng-template>
+      </mat-expansion-panel>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </main>

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MealPlanGrocery, MealPlan } from '@app/models';
 import { ApiService } from '@app/api.service';
+import { AppService } from '@app/app.service';
 
 
 @Component({
@@ -15,10 +16,13 @@ export class GroceriesComponent implements OnInit {
   groceriesByCategory: { [key: string]: MealPlanGrocery[] } = {};
 
   constructor(
+    readonly appService: AppService,
     readonly apiService: ApiService
   ) { }
 
   ngOnInit() {
+      this.appService.setMealPlan(this.mealPlan);
+
       this.apiService.getMealPlanGroceries(this.mealPlan.id).subscribe(
           g => this.groceriesByCategory = this.categorizeGroceries(g)
       );
