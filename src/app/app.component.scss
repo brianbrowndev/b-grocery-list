@@ -27,7 +27,6 @@ main {
 
 mat-sidenav {
   width:50rem;
-  padding:1rem;
   &.is-mobile {
     width:inherit;
     right:0;
@@ -42,4 +41,8 @@ mat-sidenav-content {
   margin-bottom:10rem;
   padding:1rem;
   height:100vh;
+}
+
+mat-expansion-panel, h1 {
+  margin: 1rem;
 }
