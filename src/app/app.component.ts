@@ -4,6 +4,8 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { MobileService } from '@app/mobile.service';
 import { Observable } from 'rxjs';
 import { AppService } from '@app/app.service';
+import { Title } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit, OnDestroy {
     readonly changeDetectorRef: ChangeDetectorRef,
     readonly mobileService: MobileService,
     readonly media: MediaMatcher,
+    readonly titleService: Title
   ) {
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => {
@@ -40,7 +43,10 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.appService.mealPlan$.subscribe(mealPlan => this.mealPlan = mealPlan);
+    this.appService.mealPlan$.subscribe(mealPlan => {
+      this.mealPlan = mealPlan;
+      this.titleService.setTitle(`${mealPlan.name} | groceries`);
+    });
   }
 
 
