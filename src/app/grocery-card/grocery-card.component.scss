@@ -14,8 +14,8 @@ mat-card-title {
 }
 mat-chip {
   color:#fff !important;
-  padding:3px;
-  margin-left:1rem;
+  padding:8px;
+  margin-left:2rem;
   &.E{
     background: rgba(42,179,75,1);
   }
@@ -32,4 +32,10 @@ mat-chip {
 }
 mat-list-option {
     flex:1;
+}
+
+
+.grocery-selected {
+    // color: rgba(0,0,0,0.6);
+    opacity:0.4;
 }
