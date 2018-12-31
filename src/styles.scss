@@ -43,3 +43,16 @@ a {
 	color:inherit;
 	text-decoration:none;
 }
+
+.link {
+  color: #3498db;
+  text-decoration: none;
+
+  &:hover {
+    color: #8a959e;
+  }
+
+  &:focus {
+    color: #8a959e;
+  }
+}
