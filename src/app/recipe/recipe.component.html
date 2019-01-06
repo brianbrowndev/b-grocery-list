@@ -1,0 +1,32 @@
+<ng-container *ngIf="recipe | async as result else loading">
+    <a class="link link-back" [routerLink]="['/meal-plans', result.mealPlanId]"><mat-icon>arrow_back</mat-icon>&nbsp;&nbsp;Back to {{result.mealPlanName}}</a>
+    <!-- <div class="recipe-title">
+      <h1><a class="link" *ngIf="result.url" [href]="result.url">{{result.name}}</a><span *ngIf="!result.url">{{result.name}}</span></h1>
+      <div>
+        <em>{{result.cookbook}}</em>
+        <em *ngIf="result.pageNumber > 0">&nbsp;pg. {{result.pageNumber}}</em>
+      </div>
+    </div>
+ -->
+ <div class="recipe-list">
+  <mat-list dense>
+      <h1 matSubHeader><a class="link" *ngIf="result.url" [href]="result.url">{{result.name}}</a><span *ngIf="!result.url">{{result.name}}</span></h1>
+      <div>
+        <em>{{result.cookbook}}</em>
+        <em *ngIf="result.pageNumber > 0">&nbsp;pg. {{result.pageNumber}}</em>
+      </div>
+      <ng-container *ngIf="recipeIngredients | async as ingredients">
+        <mat-list-item *ngFor="let ingredient of ingredients; last as last">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+          {{ingredient.measurement}} {{ingredient.name}}
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </ng-container>
+  </mat-list>
+ </div>
+</ng-container>
+<ng-template #loading>
+  <div class="loading">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>

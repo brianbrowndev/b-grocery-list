@@ -50,6 +50,10 @@ export class ApiService {
   public getMealPlanRecipes(id: number): Observable<MealPlanRecipe[]> {
       return this.request<MealPlanRecipe[]>(`meal-plan/recipes/${id}`, null);
   }
+  public getMealPlanRecipe(id: number): Observable<MealPlanRecipe> {
+      return this.request<MealPlanRecipe>(`recipes/${id}`, null);
+  }
+
   public getMealPlanGroceries(id: number): Observable<MealPlanGrocery[]> {
       return this.request<MealPlanGrocery[]>(`meal-plan/groceries/${id}`, null);
   }
