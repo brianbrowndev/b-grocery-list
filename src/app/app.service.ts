@@ -20,4 +20,16 @@ export class AppService {
     this.mealPlan.next(mealPlan);
   }
 
+  // Observable string sources
+  private sidePanel = new Subject<any>();
+ 
+  // Observable string streams
+  sidePanel$ = this.sidePanel.asObservable();
+ 
+  // Service message commands
+  setSidePanel(open: boolean) {
+    this.sidePanel.next(open);
+  }
+
+
 }

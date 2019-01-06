@@ -47,6 +47,7 @@ export class AppComponent implements OnInit, OnDestroy {
       this.mealPlan = mealPlan;
       this.titleService.setTitle(`${mealPlan.name} | groceries`);
     });
+    this.appService.sidePanel$.subscribe(open => this.open = open);
   }
 
 

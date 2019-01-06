@@ -2,7 +2,7 @@
   <mat-list-item *ngFor="let recipe of result; last as last">
     <div matLine class="recipe-title">
       <strong>
-        <a class="link" [routerLink]="['meal-plans', mealPlan.id, 'recipes', recipe.recipeId]" routerLinkActive="link-active">{{recipe.count}}x {{recipe.name}}</a> 
+        <a (click)="appService.setSidePanel(false)" class="link" [routerLink]="['meal-plans', mealPlan.id, 'recipes', recipe.recipeId]" routerLinkActive="link-active">{{recipe.count}}x {{recipe.name}}</a> 
       </strong>
       <em>{{recipe.category}}</em>
     </div>
