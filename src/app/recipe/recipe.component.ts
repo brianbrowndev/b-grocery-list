@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MealPlanGrocery, MealPlan, MealPlanRecipe, RecipeIngredient } from '@app/models';
+import { MealPlan, MealPlanRecipe, RecipeIngredient } from '@app/models';
 import { ApiService } from '@app/api.service';
 import { AppService } from '@app/app.service';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class RecipeComponent implements OnInit {
 
-  mealPlan: Observable<MealPlan>;
+  mealPlan: MealPlan;
   recipe: Observable<MealPlanRecipe>;
   recipeIngredients: Observable<RecipeIngredient[]>;
 
@@ -29,9 +29,10 @@ export class RecipeComponent implements OnInit {
       const recipeId = params['recipeId'];
       this.apiService.getMealPlan(mealPlanId).subscribe(mealPlan => {
         this.appService.setMealPlan(mealPlan);
+        this.recipe = this.apiService.getMealPlanRecipe(recipeId);
+        this.recipeIngredients = this.apiService.getRecipeIngredients(recipeId);
+        this.mealPlan = mealPlan;
       })
-      this.recipe = this.apiService.getMealPlanRecipe(recipeId);
-      this.recipeIngredients = this.apiService.getRecipeIngredients(recipeId);
     });
   }
 }

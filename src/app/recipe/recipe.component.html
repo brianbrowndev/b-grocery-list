@@ -1,5 +1,5 @@
 <ng-container *ngIf="recipe | async as result else loading">
-    <a class="link link-back" [routerLink]="['/meal-plans', result.mealPlanId]"><mat-icon>arrow_back</mat-icon>&nbsp;&nbsp;Back to {{result.mealPlanName}}</a>
+    <a class="link link-back" [routerLink]="['/meal-plans', mealPlan.id]"><mat-icon>arrow_back</mat-icon>&nbsp;&nbsp;Back to {{mealPlan.name}}</a>
     <!-- <div class="recipe-title">
       <h1><a class="link" *ngIf="result.url" [href]="result.url">{{result.name}}</a><span *ngIf="!result.url">{{result.name}}</span></h1>
       <div>
