@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api: "https://budgetapi.bgeo.io/api"
+  api: "https://budgetapi.brianbrown.dev/api"
 
 };
