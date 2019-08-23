@@ -21,6 +21,7 @@
             "aot": true,
             "assets": [
               "src/assets",
+              "src/favicon.ico",
               "src/manifest.json"
             ],
             "styles": [
@@ -78,6 +79,7 @@
             ],
             "scripts": [],
             "assets": [
+              "src/manifest.json",
               "src/favicon.ico",
               "src/assets"
             ]
