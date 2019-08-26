@@ -1,6 +1,6 @@
 <mat-list dense *ngIf="mealPlans | async as result else loading">
   <mat-list-item *ngFor="let mealPlan of result; last as last">
-    <a class="mealplan-title" [routerLink]="['/meal-plans', mealPlan.id]">
+    <a class="mealplan-title" [routerLink]="['/meal-plans', mealPlan.id]" (click)="appService.setSidePanel(false)" routerLinkActive="active-link">
       <strong><span>{{mealPlan.name}}</span></strong>
       <em>{{mealPlan.cost | currency:'USD'}}</em>
     </a>

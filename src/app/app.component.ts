@@ -2,7 +2,6 @@ import { ChangeDetectorRef, Component, OnInit, OnDestroy } from '@angular/core';
 import { MealPlan } from '@app/models';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MobileService } from '@app/mobile.service';
-import { Observable } from 'rxjs';
 import { AppService } from '@app/app.service';
 import { Title } from '@angular/platform-browser';
 
@@ -45,7 +44,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.appService.mealPlan$.subscribe(mealPlan => {
       this.mealPlan = mealPlan;
-      this.titleService.setTitle(`${mealPlan.name} | groceries`);
+      this.titleService.setTitle(`Grocery List | ${mealPlan.name}`);
     });
     this.appService.sidePanel$.subscribe(open => this.open = open);
   }

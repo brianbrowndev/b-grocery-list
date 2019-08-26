@@ -6,6 +6,7 @@
     align-items:center;
     padding-right:.5rem !important;
     white-space: normal !important;
+    opacity:0.7;
 }
 mat-list-item {
     padding: 0;
@@ -20,3 +21,6 @@ mat-list-item {
 }
 
 
+.active-link {
+    opacity:1;
+}

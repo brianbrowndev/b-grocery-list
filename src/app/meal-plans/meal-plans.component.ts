@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import {  MealPlan } from '@app/models';
 import { ApiService } from '@app/api.service';
+import { AppService } from '@app/app.service';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class MealPlansComponent implements OnInit {
   mealPlans: Observable<MealPlan[]>;
 
   constructor(
-    public apiService: ApiService
+    public apiService: ApiService,
+    public appService: AppService
   ) { }
 
   ngOnInit() {
