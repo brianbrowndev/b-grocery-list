@@ -30,6 +30,7 @@ import { StorageService } from '@app/storage.service';
 import { MealPlansComponent } from './meal-plans/meal-plans.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RecipeComponent } from './recipe/recipe.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 
@@ -57,7 +58,8 @@ import { RecipeComponent } from './recipe/recipe.component';
     MatChipsModule,
     MatExpansionModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     StorageService
