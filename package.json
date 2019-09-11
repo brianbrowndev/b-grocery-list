@@ -1,6 +1,6 @@
 {
   "name": "groceries",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
@@ -9,7 +9,6 @@
     "lint": "ng lint",
     "server": "http-server -p 4200 -c-1 dist/groceries",
     "e2e": "ng e2e",
-    "deploy": "rsync -a ./dist/groceries/ bgeo@159.203.127.52:/var/www/groceries/"
   },
   "private": true,
   "dependencies": {
