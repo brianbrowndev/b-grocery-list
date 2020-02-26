@@ -43,7 +43,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.appService.mealPlan$.subscribe(mealPlan => {
-      this.mealPlan = mealPlan;
+      setTimeout(() => 
+      this.mealPlan = mealPlan);
       this.titleService.setTitle(`Grocery List | ${mealPlan.name}`);
     });
     this.appService.sidePanel$.subscribe(open => this.open = open);

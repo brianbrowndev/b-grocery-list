@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { MealPlanGrocery } from '@app/models';
 import { MobileService } from '@app/mobile.service';
-import { MatSelectionList } from '@angular/material';
 import { StorageService } from '@app/storage.service';
 
 @Component({

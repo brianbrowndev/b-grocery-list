@@ -8,7 +8,7 @@
     <ng-container *ngFor="let grocery of groceries; last as last">
       <div class="grocery-item">
         <mat-list-option [disableRipple]="true" [selected]="grocery.selected" (click)="select($event, grocery)">
-          <span [class.grocery-selected]="grocery.selected">
+          <span [class.grocery-selected]="grocery.selected" class="row-container">
               <span *ngIf="grocery.count > 0">{{grocery.count}}&nbsp;</span>
               <span *ngIf="grocery.weight > 0">{{grocery.weight | number : '1.0-2'}}{{grocery.unit}}&nbsp;</span>
               <span>{{grocery.name}}</span>

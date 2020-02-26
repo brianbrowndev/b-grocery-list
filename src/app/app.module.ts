@@ -8,17 +8,15 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Material
-import {
-  MatToolbarModule
-  , MatSidenavModule
-  , MatProgressSpinnerModule
-  , MatListModule
-  , MatCardModule
-  , MatIconModule
-  , MatButtonModule
-  , MatChipsModule
-  , MatExpansionModule
-} from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 // Components

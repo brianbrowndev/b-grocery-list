@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MealPlanRecipe, MealPlan } from '@app/models';
 import { ApiService } from '@app/api.service';
@@ -10,7 +10,7 @@ import { AppService } from '@app/app.service';
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss']
 })
-export class RecipesComponent implements OnInit {
+export class RecipesComponent implements OnChanges {
 
 
   @Input() mealPlan: MealPlan;
@@ -21,12 +21,10 @@ export class RecipesComponent implements OnInit {
     public apiService: ApiService
   ) { }
 
-  ngOnInit() {
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['mealPlan']) {
       this.recipes = this.apiService.getMealPlanRecipes(this.mealPlan.id);
-      this.appService.mealPlan$.subscribe(mealPlan => {
-        this.mealPlan = mealPlan;
-        this.recipes = this.apiService.getMealPlanRecipes(this.mealPlan.id);
-      })
+    }
   }
 
 }
