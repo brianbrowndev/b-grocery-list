@@ -1,8 +1,10 @@
 # Grocery List
 
-Creating a list of groceries each week is painful. It's hard to organize, to check items off in the store, to write down ingredients from books, to combine the ingredients, and then must redo it all again the next week. Then there is the moment when you return home and realize you forgot something.
+An app to simplify and optimize grocery shopping. Build a meal plan then check off ingredients at the store. Stop forgetting what ingredients each recipe needs and focus on getting what you need, efficiently. 
 
-That's why I built this app. It simplifies the shopping experience and allows me to do more of what I love: cook. Check it out [here](https://groceries.brianbrown.dev).
+Check it out [here](https://groceries.brianbrown.dev).
+
+![home page](docs/home.png)
 
 # Features
 
