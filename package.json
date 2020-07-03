@@ -1,10 +1,10 @@
 {
   "name": "groceries",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot",
-    "build": "ng build --prod --aot ",
+    "build": "ng build --prod --aot --base-href '/groceries/'",
     "test": "ng test",
     "lint": "ng lint",
     "server": "http-server -p 4200 -c-1 dist/groceries",

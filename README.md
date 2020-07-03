@@ -2,7 +2,7 @@
 
 An app to simplify and optimize grocery shopping. Build a meal plan then check off ingredients at the store. Stop forgetting what ingredients each recipe needs and focus on getting what you need, efficiently. 
 
-Check it out [here](https://groceries.brianbrown.dev).
+Check it out [here](https://brianbrown.dev/groceries).
 
 ![home page](docs/home.png)
 

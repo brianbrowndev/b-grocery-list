@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  api: "https://api.brianbrown.dev/api"
+  api: "https://brianbrown.dev/api"
 
 };
