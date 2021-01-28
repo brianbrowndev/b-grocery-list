@@ -7,8 +7,10 @@
     "build": "ng build --prod --aot --base-href '/groceries/'",
     "test": "ng test",
     "lint": "ng lint",
+    "docker-up": "docker-compose -f docker-compose.dev.yml up",
     "server": "http-server -p 4200 -c-1 dist/groceries",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {
