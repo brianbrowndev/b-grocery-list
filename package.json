@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve --aot",
     "build": "ng build --prod --aot --base-href '/groceries/'",
+    "docker-build": "docker-compose -f docker-compose.dev.yml build",
+    "start": "docker-compose -f docker-compose.dev.yml up",
     "test": "ng test",
     "lint": "ng lint",
     "docker-up": "docker-compose -f docker-compose.dev.yml up",
