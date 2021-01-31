@@ -2,10 +2,11 @@ version: '2'
 services:
   web:
     container_name: b-grocery-list-dev
+    image: b-grocery-list-dev:latest
     build:
       context: ./
       dockerfile: Dockerfile.dev
     ports:
-      - "4201:4200"
+      - "4200:4200"
     volumes:
       - ./src:/opt/app/src
